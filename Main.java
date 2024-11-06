@@ -6,35 +6,33 @@ public class Main {
         Inventario inventario = new Inventario();
         Scanner scanner = new Scanner(System.in);
         String continuar;
+        String continuarProducto;
         
         System.out.println("Desea agregar algun producto al inventario? (s/n): ");
         continuar = scanner.nextLine();
             
 
-        if(continuar.equals("s")){
+        if (continuar.equalsIgnoreCase("s")) {
             do {
                 System.out.print("Ingrese el nombre del producto: ");
                 String nombre = scanner.nextLine();
-
+                
                 System.out.print("Ingrese el precio del producto: ");
                 double precio = scanner.nextDouble();
-
+                
                 System.out.print("Ingrese la cantidad del producto: ");
                 int cantidad = scanner.nextInt();
-
-
-                scanner.nextLine();
-
-
+                
+                scanner.nextLine(); 
+                
                 Producto nuevoProducto = new Producto(nombre, precio, cantidad);
-
                 inventario.agregarProducto(nuevoProducto);
                 
                 System.out.print("¿Desea agregar otro producto? (s/n): ");
-                continuar = scanner.nextLine();
+                continuarProducto = scanner.nextLine();
                 
-                }while (continuar.equalsIgnoreCase("s"));}
-            else{
+            } while (continuarProducto.equalsIgnoreCase("s"));
+        }
 
         //scanner.close();
         
@@ -59,10 +57,7 @@ public class Main {
             }
         }
             while(opcion != 3);
-
-        
-            
-             scanner.close(); 
+            scanner.close(); 
         }
     }
-}
+

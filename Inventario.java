@@ -21,7 +21,7 @@ public class Inventario {
     public void listarProductos(){
         if(!listaDeProductos.isEmpty()){
             for (Producto producto : listaDeProductos) {
-                System.out.println("Nombre de producto : " + producto.getNombre() + "Precio: " + producto.getPrecio() + " Cantidad: " + producto.getCantidad());
+                System.out.println("Nombre de producto : " + producto.getNombre() + " Precio: " + producto.getPrecio() + " Cantidad: " + producto.getCantidad());
             }
         }else{System.out.println("El inventario se encuentra vacio, no hay elementos por listar");}
         }
