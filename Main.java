@@ -58,7 +58,7 @@ public class Main {
 
             }
         }
-            while(opcion != 2);
+            while(opcion != 3);
 
         
             
