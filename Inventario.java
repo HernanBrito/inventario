@@ -8,20 +8,23 @@ public class Inventario {
 
 
     public void calcularValorInventario(){
-        for (Producto producto : listaDeProductos) {
-            valorInventario += producto.getPrecio() * producto.getCantidad();
-        }
-        System.out.println(valorInventario);
+        
+        if(!listaDeProductos.isEmpty()){
+            for (Producto producto : listaDeProductos) {
+                valorInventario += producto.getPrecio() * producto.getCantidad();
+            }
+            System.out.println(valorInventario);
+        }else{System.out.println("El inventario se encuentra vacio, no se puede calcular el valor");}
     }
 
 
     public void listarProductos(){
-
-        for (Producto producto : listaDeProductos) {
-            System.out.println("Nombre de producto : " + producto.getNombre() + "Precio: " + producto.getPrecio() + " Cantidad: " + producto.getCantidad());
+        if(!listaDeProductos.isEmpty()){
+            for (Producto producto : listaDeProductos) {
+                System.out.println("Nombre de producto : " + producto.getNombre() + "Precio: " + producto.getPrecio() + " Cantidad: " + producto.getCantidad());
+            }
+        }else{System.out.println("El inventario se encuentra vacio, no hay elementos por listar");}
         }
-
-    }
 
     public void agregarProducto(Producto producto){
         listaDeProductos.add(producto);
