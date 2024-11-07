@@ -9,12 +9,9 @@ public class Inventario {
 
     public void calcularValorInventario(){
         
-        if(!listaDeProductos.isEmpty()){
             for (Producto producto : listaDeProductos) {
                 valorInventario += producto.getPrecio() * producto.getCantidad();
             }
-            System.out.println(valorInventario);
-        }else{System.out.println("El inventario se encuentra vacio, no se puede calcular el valor");}
     }
 
 

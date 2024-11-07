@@ -46,7 +46,8 @@ public class Main {
         opcion = scanner.nextInt();
 
         if (opcion == 1) { 
-            inventario.calcularValorInventario(); 
+            inventario.calcularValorInventario();
+            System.out.println("El valor del inventario es: "+inventario.valorInventario); 
         } else if (opcion == 2) {
             System.out.println("\nProductos en el inventario:");
             inventario.listarProductos();

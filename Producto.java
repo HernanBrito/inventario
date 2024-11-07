@@ -11,6 +11,10 @@ public class Producto {
 
     }
 
+    public void setPrecio(Double precioProducto){
+        precio = precioProducto;
+    }
+
     public double getPrecio(){
         return precio;
     } 
