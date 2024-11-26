@@ -66,8 +66,10 @@ public class Inventario {
             Collections.sort(listaDeProductos , 
                 (Producto p1 , Producto p2) ->Double.compare(p2.getPrecio(), p1.getPrecio())
          );
-        }else if(opcion.equals("categoria")){
-
+        }else if(opcion.equals("cantidad")){
+            Collections.sort(listaDeProductos ,
+            (Producto p1 , Producto p2) -> Integer.compare(p2.getCantidad(), p1.getCantidad())
+            );
             }
 
 //        System.out.println("Lista de productos ordenada por " + opcion + ":");

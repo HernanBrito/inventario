@@ -2,3 +2,7 @@ Coca cola,Gaseosas,3200,30
 Manaos uva,Gaseosas,1300,50
 Pitusas chocolate,Galletitas,1000,10
 Oreo,Galletitas,1600,40
+Manaos cola,Gaseosas,1300.0,50
+Manaos lima,Gaseosas,1300.0,25
+Manaos pomelo,Gaseosas,1300.0,36
+Capitan del espacio triple de chocolate,Alfajores,1500.5,100

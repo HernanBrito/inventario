@@ -1,6 +1,9 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Main {
@@ -10,14 +13,14 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String continuar;
         String continuarProducto;
-
+        String nombreArchivo = "";
 
         System.out.print("¿Desea cargar productos desde un archivo? (s/n): ");
         String cargarDesdeArchivo = scanner.nextLine();
 
         if (cargarDesdeArchivo.equalsIgnoreCase("s")) {
             System.out.print("Ingrese el nombre del archivo (con extensión): ");
-            String nombreArchivo = scanner.nextLine();
+            nombreArchivo = scanner.nextLine();
 
             try (BufferedReader breader = new BufferedReader(new FileReader(nombreArchivo))) {
                 String linea;
@@ -67,6 +70,12 @@ public class Main {
                 
                 Producto nuevoProducto = new Producto(nombre, categoria , precio, cantidad);
                 inventario.agregarProducto(nuevoProducto);
+
+
+                if (!nombreArchivo.isEmpty()) {
+                    agregarProductoAlArchivo(nombreArchivo, nuevoProducto);
+                }
+
                 
                 System.out.print("¿Desea agregar otro producto? (s/n): ");
                 continuarProducto = scanner.nextLine();
@@ -114,7 +123,7 @@ public class Main {
         }
         }else if (opcion == 5) {
             System.out.println("Como quiere ordenar los productos?");
-            System.out.println("precio, nombre, categoria");
+            System.out.println("precio, nombre, cantidad");
             String ordenarPor = scanner.nextLine();
             inventario.productosOrdenadosPor(ordenarPor);
             inventario.listarProductos();
@@ -134,6 +143,21 @@ public class Main {
                                ", Cantidad: " + producto.getCantidad());
         }
 
+    public static void agregarProductoAlArchivo(String nombreArchivo, Producto producto) {
+        try (FileWriter archivoWr = new FileWriter(nombreArchivo, true);
+             BufferedWriter brwWriter = new BufferedWriter(archivoWr);
+             PrintWriter pwriter = new PrintWriter(brwWriter)) {
+            
+            pwriter.println(producto.getNombre() + "," +
+                       producto.getCategoria() + "," +
+                       producto.getPrecio() + "," +
+                       producto.getCantidad());
+            
+            System.out.println("Producto agregado al archivo: " + producto.getNombre());
+        } catch (IOException e) {
+            System.out.println("Error al escribir en el archivo: " + e.getMessage());
+        }
+    } 
 
 
     }
