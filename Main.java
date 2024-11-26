@@ -61,15 +61,19 @@ public class Main {
         }else if(opcion == 3) {
             System.out.println("Que producto desea buscar?");
             String productoABuscar = scanner.nextLine();
-            inventario.buscarProducto(productoABuscar);
+            Producto producto = inventario.buscarProducto(productoABuscar);
+            if(!(producto == null)){
+                caracteristicasProducto(producto);
+            }else{System.out.println("No existe ese producto en el inventario");}
         }else if(opcion == 4){
             System.out.println("Que producto desea eliminar?");
             String productoAEliminar = scanner.nextLine();
-            if(inventario.elminarProducto(productoAEliminar)){
-                System.out.println("El producto" + productoAEliminar + " se a eliminado correctamente");
-            }else{
-                System.out.println("El producto que desea eliminar no se encuentra en el inventario");
+            try{if(inventario.eliminarProducto(productoAEliminar)){
+                System.out.println("El producto " + productoAEliminar + " se a eliminado correctamente");
             }
+        }catch(Exception e){
+            System.out.println(e);
+        }
         }else if (opcion != 5) {
              System.out.println("Opción no válida, por favor intente de nuevo.");
             }
@@ -77,5 +81,13 @@ public class Main {
             while(opcion != 5);
             scanner.close(); 
         }
+
+        public static void caracteristicasProducto(Producto producto) {
+            System.out.println("Nombre de producto: " + producto.getNombre() +
+                               ", Categoría: " + producto.getCategoria() +
+                               ", Precio: " + producto.getPrecio() +
+                               ", Cantidad: " + producto.getCantidad());
+        }
+
     }
 
