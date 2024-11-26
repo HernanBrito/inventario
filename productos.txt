@@ -1,0 +1,4 @@
+Coca cola,Gaseosas,3200,30
+Manaos uva,Gaseosas,1300,50
+Pitusas chocolate,Galletitas,1000,10
+Oreo,Galletitas,1600,40

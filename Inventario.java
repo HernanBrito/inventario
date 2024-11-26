@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Inventario {
 
@@ -53,6 +54,27 @@ public class Inventario {
             }
         return encontrado;
     }
+
+
+
+    public void productosOrdenadosPor(String opcion){
+         if(opcion.equals("nombre")){
+             Collections.sort(listaDeProductos , 
+               (Producto p1 , Producto p2) -> p1.getNombre().compareTo(p2.getNombre())     
+            );
+        }else if(opcion.equals("precio")){
+            Collections.sort(listaDeProductos , 
+                (Producto p1 , Producto p2) ->Double.compare(p2.getPrecio(), p1.getPrecio())
+         );
+        }else if(opcion.equals("categoria")){
+
+            }
+
+//        System.out.println("Lista de productos ordenada por " + opcion + ":");
+//            for (Producto producto : listaDeProductos) {
+//                System.out.println(producto.getNombre()); //ver como implementarlo en el front
+//           }
+        }
 
 
  }
